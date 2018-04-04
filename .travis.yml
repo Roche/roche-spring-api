@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=2b037ae0ef9aa68c5b58879498704bfafd93e69116cca25738f52d509fce332d
+
 language: java
 
 jdk:
@@ -6,6 +10,14 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - cd target/jacoco-result
+  - ./cc-test-reporter after-build -d -t jacoco
 
 #deploy:
 #  - provider: script
