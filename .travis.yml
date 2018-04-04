@@ -17,7 +17,6 @@ before_script:
   - ./cc-test-reporter before-build
 after_script:
   - export JACOCO_SOURCE_PATH=$(pwd)/src/main/java
-  - echo $JACOCO_SOURCE_PATH
   - ./cc-test-reporter format-coverage "target/jacoco-result/jacoco.xml" -d -t jacoco
   - ./cc-test-reporter upload-coverage -d
 
