@@ -220,4 +220,9 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/Roche/roche-spring-api.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Roche/roche-spring-api.git</developerConnection>
+        <url>https://github.com/Roche/roche-spring-api/tree/master</url>
+    </scm>
 </project>
