@@ -16,8 +16,9 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
+  - ls
   - cd target/jacoco-result
-  - ./cc-test-reporter after-build -d -t jacoco
+  - ./cc-test-reporter after-build -d -t jacoco target/jacoco-result/jacoco.xml
 
 #deploy:
 #  - provider: script
