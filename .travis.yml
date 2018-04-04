@@ -16,7 +16,7 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
-  - ./cc-test-reporter format-coverage "target/jacoco-result/jacoco.xml" -d -t jacoco
+  - ./cc-test-reporter format-coverage "target/jacoco-result/jacoco.xml" -d -t jacoco --add-prefix "src/main/java"
   - ./cc-test-reporter upload-coverage -d
 
 #deploy:
