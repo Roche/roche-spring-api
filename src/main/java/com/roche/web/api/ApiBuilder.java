@@ -7,13 +7,18 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.servlet.mvc.condition.*;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.function.Consumer;
 
 /**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Representation of API mapping to be built.
+ * It uses base {@link RequestMappingInfo} built by {@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping}
+ * and then enhanced by API customizations.
+ *
+ * <p>Using this class, you can operate directly on original mapping ({@link #getInfo()}
+ * or any other object used to customize API mapping.</p>
+ *
  */
 public class ApiBuilder {
 
@@ -68,6 +73,12 @@ public class ApiBuilder {
                 .forEach(consumer);
     }
 
+    /**
+     * Method building customized API mapping based on original mapping
+     * and applied customizations
+     *
+     * @return API mapping object
+     */
     public RequestMappingInfo build() {
         PatternsRequestCondition patterns = pathHolders.toCondition();
         Tuple<ConsumesRequestCondition, ProducesRequestCondition> pair = contentTypeHolders.toCondition();
@@ -78,74 +89,131 @@ public class ApiBuilder {
         return builder.build();
     }
 
+    /**
+     * @return API annotation applied on class
+     *
+     * @see #getHandlerType()
+     */
     public Api getApi() {
         return this.api;
     }
 
+    /**
+     * @return method handling given API call defined within {@link #handlerType}.
+     * This method will be called whenever request matches {@link RequestMappingInfo}
+     */
     public Method getMethod() {
         return this.method;
     }
 
+    /**
+     * @return controller class annotated with {@link Api}
+     */
     public Class<?> getHandlerType() {
         return this.handlerType;
     }
 
-    public RequestMappingInfo getInfo() {
-        return this.info;
-    }
-
+    /**
+     * @return object holding path definition
+     */
     public PathHolders getPathHolders() {
         return this.pathHolders;
     }
 
+    /**
+     * @return object holding content-type definition
+     */
     public ContentTypeHolders getContentTypeHolders() {
         return this.contentTypeHolders;
     }
 
+    /**
+     * @return API version object applicable to this API mapping. If method-level {@link ApiVersion}
+     * is defined, then it overrides type-level value.
+     */
     public ApiVersion getApiVersion() {
         return this.apiVersion;
     }
 
+    /**
+     * @return original mapping built by {@link org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping},
+     * on which then are applied customizations
+     */
+    public RequestMappingInfo getInfo() {
+        return this.info;
+    }
+
+    /**
+     * @return original consumes condition. Shorthand for {@code getInfo().getConsumesCondition();}
+     */
     public ConsumesRequestCondition getConsumesCondition() {
         return this.info.getConsumesCondition();
     }
 
-    public RequestMappingInfo getMatchingCondition(HttpServletRequest request) {
-        return this.info.getMatchingCondition(request);
-    }
-
-    public int compareTo(RequestMappingInfo other, HttpServletRequest request) {
-        return this.info.compareTo(other, request);
-    }
-
+    /**
+     * @return original headers condition. Shorthand for {@code getInfo().getHeadersCondition();}
+     */
     public HeadersRequestCondition getHeadersCondition() {
         return this.info.getHeadersCondition();
     }
 
-    public RequestMappingInfo combine(RequestMappingInfo other) {
-        return this.info.combine(other);
-    }
-
+    /**
+     * @return original produces condition. Shorthand for {@code getInfo().getProducesCondition();}
+     */
     public ProducesRequestCondition getProducesCondition() {
         return this.info.getProducesCondition();
     }
 
+    /**
+     * @return original patterns condition. Shorthand for {@code getInfo().getPatternsCondition();}
+     */
     public PatternsRequestCondition getPatternsCondition() {
         return this.info.getPatternsCondition();
     }
 
+    /**
+     * @return original request methods condition. Shorthand for {@code getInfo().getMethodsCondition();}
+     */
     public RequestMethodsRequestCondition getMethodsCondition() {
         return this.info.getMethodsCondition();
     }
 
+    /**
+     * @return original params condition. Shorthand for {@code getInfo().getParamsCondition();}
+     */
     public ParamsRequestCondition getParamsCondition() {
         return this.info.getParamsCondition();
     }
 
+    /**
+     * @return original custom condition. Shorthand for {@code getInfo().getCustomCondition();}
+     */
     public RequestCondition<?> getCustomCondition() {
         return this.info.getCustomCondition();
     }
 
+    /**
+     * Builds request mapping from this definition and combines with other request mapping.
+     * <p>
+     * <p>This method first builds new API mapping and then it applies custom mapping.
+     * It does not operate on original mapping!</p>
+     * <p>
+     * <p>This operation can be chained!</p>
+     * <p>
+     * <p><b>IMPORTANT:</b> Use it with care, as it may completely change how given mapping is built,
+     * however it offers most powerful capabilities, because you can define custom request mapping
+     * and apply it to original.</p>
+     *
+     * @return new API builder with applied custom request mapping.
+     */
+    public ApiBuilder combine(RequestMappingInfo other) {
+        RequestMappingInfo combined = build().combine(other);
+        return new ApiBuilder(api, method, handlerType, combined, apiProperties);
+    }
+
+    /**
+     * @return original mapping name. Shorthand for {@code getInfo().getName();}
+     */
     public String getName() {
         return this.info.getName();
     }

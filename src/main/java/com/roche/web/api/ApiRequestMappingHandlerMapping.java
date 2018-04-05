@@ -16,7 +16,11 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Creates {@link RequestMappingInfo} instances from type and method-level
+ * {@link RequestMapping @RequestMapping} annotations in
+ * {@link Api @Api} classes.
+ *
+ * It uses {@link ApiDecorator} objects to customize endpoint mappings.
  */
 public class ApiRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
@@ -35,6 +39,9 @@ public class ApiRequestMappingHandlerMapping extends RequestMappingHandlerMappin
         setOrder(-1);
     }
 
+    /**
+     * If bean is annotated with {@link Api} then it will be handled by this class
+     */
     @Override
     protected boolean isHandler(Class<?> beanType) {
         Class<?> type = ClassUtils.getUserClass(beanType);

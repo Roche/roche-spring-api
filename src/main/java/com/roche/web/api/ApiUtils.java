@@ -7,12 +7,9 @@ import java.util.List;
 
 import static com.roche.web.annotation.ApiVersion.UNVERSIONED;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
-public final class ApiUtils {
+final class ApiUtils {
 
-    public static final String PATH_DELIMETER = "/";
+    static final String PATH_DELIMETER = "/";
 
     private ApiUtils() {
     }
