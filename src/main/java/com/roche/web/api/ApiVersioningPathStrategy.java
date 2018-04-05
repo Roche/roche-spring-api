@@ -2,9 +2,9 @@ package com.roche.web.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
-import javax.annotation.PostConstruct;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * then new pattern will added (current won't be replaced and will still exist)
  * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
  */
-class ApiVersioningPathStrategy extends AbstractApiVersioningStrategy {
+class ApiVersioningPathStrategy extends AbstractApiVersioningStrategy implements InitializingBean {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApiVersioningPathStrategy.class);
 
@@ -22,8 +22,8 @@ class ApiVersioningPathStrategy extends AbstractApiVersioningStrategy {
         super(namingProvider, properties);
     }
 
-    @PostConstruct
-    void init() {
+    @Override
+    public void afterPropertiesSet() throws Exception {
         LOG.info("Enabled API versioning in request path (e.g. /{}/{}1/resource", properties.getPathPrefix(), properties.getVersionPrefix());
     }
 
@@ -40,4 +40,5 @@ class ApiVersioningPathStrategy extends AbstractApiVersioningStrategy {
     protected VersionTarget getVersionTarget(ApiBuilder builder) {
         return builder.getPathHolders();
     }
+
 }

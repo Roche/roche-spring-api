@@ -2,18 +2,18 @@ package com.roche.web.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.MimeType;
 import org.springframework.web.servlet.mvc.condition.MediaTypeExpression;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
-import javax.annotation.PostConstruct;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
  * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
  */
-class ApiVersioningContentTypeStrategy extends AbstractApiVersioningStrategy {
+class ApiVersioningContentTypeStrategy extends AbstractApiVersioningStrategy implements InitializingBean {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApiVersioningContentTypeStrategy.class);
 
@@ -21,8 +21,8 @@ class ApiVersioningContentTypeStrategy extends AbstractApiVersioningStrategy {
         super(namingProvider, properties);
     }
 
-    @PostConstruct
-    void init() {
+    @Override
+    public void afterPropertiesSet() throws Exception {
         LOG.info("Enabled API versioning in content-type (e.g. application/{}.{}1+json", properties.getContentTypeVnd(), properties.getVersionPrefix());
     }
 

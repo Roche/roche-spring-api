@@ -2,14 +2,13 @@ package com.roche.web.api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.StringUtils;
-
-import javax.annotation.PostConstruct;
 
 /**
  * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
  */
-class ContextPathEnhancer implements ApiDecorator {
+class ContextPathEnhancer implements ApiDecorator, InitializingBean {
 
     private static final Logger LOG = LoggerFactory.getLogger(ContextPathEnhancer.class);
 
@@ -19,8 +18,8 @@ class ContextPathEnhancer implements ApiDecorator {
         this.properties = properties;
     }
 
-    @PostConstruct
-    void init() {
+    @Override
+    public void afterPropertiesSet() throws Exception {
         LOG.info("Base context set to: {}", properties.getBaseContext());
     }
 
