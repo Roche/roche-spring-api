@@ -1,7 +1,8 @@
 package com.roche.web.swagger;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Swagger API version provider interface.
+ * Implement it to customize Swagger version defined by Swagger
  */
 public interface VersionProvider {
 

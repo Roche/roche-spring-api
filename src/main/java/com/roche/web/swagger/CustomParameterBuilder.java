@@ -5,7 +5,7 @@ import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.Parameter;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Utility used for building custom parameters.
  */
 public final class CustomParameterBuilder {
 
@@ -27,6 +27,10 @@ public final class CustomParameterBuilder {
 
     public static Parameter build(String name, Target target) {
         return build(name, target.name().toLowerCase());
+    }
+
+    private CustomParameterBuilder() {
+
     }
 
     enum Target {

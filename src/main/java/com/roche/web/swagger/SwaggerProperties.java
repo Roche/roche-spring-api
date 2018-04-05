@@ -2,9 +2,6 @@ package com.roche.web.swagger;
 
 import org.springframework.beans.factory.annotation.Value;
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class SwaggerProperties {
 
     static final String PREFIX = "roche.swagger.";
