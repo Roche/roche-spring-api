@@ -1,7 +1,7 @@
 package com.roche.web.utils;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com)
+ * Simple implementation of two-value tuple/pair object.
  */
 public class Tuple<T, U> {
 
@@ -13,10 +13,16 @@ public class Tuple<T, U> {
         this.two = two;
     }
 
+    /**
+     * @return value of first object passed to constructor
+     */
     public T getOne() {
         return one;
     }
 
+    /**
+     * @return value of second object passed to constructor
+     */
     public U getTwo() {
         return two;
     }
