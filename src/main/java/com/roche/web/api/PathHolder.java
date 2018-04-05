@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 final class PathHolder implements VersionTarget {
 
     private String apiPrefix;

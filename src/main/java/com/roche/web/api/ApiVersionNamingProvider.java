@@ -1,11 +1,8 @@
 package com.roche.web.api;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class ApiVersionNamingProvider {
 
-    static final String LATEST_VERSION = "latest";
+    static final String LATEST_VERSION = "latest"; //TODO add support for handling latest
 
     private final ApiProperties properties;
 

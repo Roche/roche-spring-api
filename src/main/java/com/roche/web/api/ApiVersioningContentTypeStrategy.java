@@ -10,9 +10,6 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class ApiVersioningContentTypeStrategy extends AbstractApiVersioningStrategy implements InitializingBean {
 
     private static final Logger LOG = LoggerFactory.getLogger(ApiVersioningContentTypeStrategy.class);

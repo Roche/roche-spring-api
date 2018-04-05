@@ -6,6 +6,7 @@ import java.util.Optional;
 
 /**
  * This class provides static methods for easily obtaining {@link ApiResponse} objects.
+ * It should be used for {@link ApiResponse} object creation.
  */
 public class ApiResponseFactory {
 

@@ -7,9 +7,7 @@ import spock.lang.Specification
 
 import java.lang.reflect.Method
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 abstract class BaseApiSpec extends Specification {
 
     static final String BASE_PATH = '/service/resource'

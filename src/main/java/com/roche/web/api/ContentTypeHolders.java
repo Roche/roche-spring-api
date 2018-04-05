@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class ContentTypeHolders implements VersionTarget {
 
     private final List<ContentTypeHolder> consumes = new ArrayList<>();

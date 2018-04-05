@@ -6,9 +6,7 @@ import spock.lang.Unroll
 import static com.roche.web.annotation.ApiVersion.UNVERSIONED
 import static com.roche.web.api.ApiTestHelper.*
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiUtilsSpec extends Specification {
 
     @Unroll

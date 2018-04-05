@@ -1,8 +1,5 @@
 package com.roche.web.api;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class ApiPathEnhancer implements ApiDecorator {
 
     private final ApiProperties properties;

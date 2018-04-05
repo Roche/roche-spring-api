@@ -4,9 +4,7 @@ import spock.lang.Shared
 import spock.lang.Specification
 
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class BasePathNamingProviderSpec extends Specification {
 
     @Shared

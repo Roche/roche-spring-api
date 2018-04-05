@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Useful request-related utilities for operating on {@link HttpServletRequest} and related classes.
  */
 public final class RequestUtil {
 
@@ -35,5 +35,9 @@ public final class RequestUtil {
         }
         String xhrHeader = request.getHeader(HttpConst.Headers.X_REQUESTED_WITH);
         return HttpConst.XML_HTTP_REQUEST.equals(xhrHeader);
+    }
+
+    private RequestUtil() {
+
     }
 }

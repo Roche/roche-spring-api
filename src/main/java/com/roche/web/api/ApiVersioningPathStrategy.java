@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
  * Component adding versioning on path, i.e. /api/v1..., /v1/...
  * If path already is versioned with this versioning schema (v1, v2, v99, ..)
  * then new pattern will added (current won't be replaced and will still exist)
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
  */
 class ApiVersioningPathStrategy extends AbstractApiVersioningStrategy implements InitializingBean {
 

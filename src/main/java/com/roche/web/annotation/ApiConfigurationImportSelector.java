@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Selector choosing configuration classes to be imported.
+ * It should utilize {@link EnableApi} parameters.
+ *
  */
 
 class ApiConfigurationImportSelector implements ImportSelector {

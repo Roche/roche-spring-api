@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RestController
 import spock.lang.Specification
 
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiRequestMappingHandlerMappingSpec extends Specification {
 
     void 'API decorating works when enabled'() {

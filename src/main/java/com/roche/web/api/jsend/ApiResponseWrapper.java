@@ -1,7 +1,6 @@
 package com.roche.web.api.jsend;
 
 import com.roche.web.api.ApiProperties;
-import com.roche.web.api.ApiUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -84,7 +83,7 @@ class ApiResponseWrapper implements ResponseBodyAdvice<Object> {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
         String uri = request.getRequestURI();
-        String test = properties.getPathPrefix() + ApiUtils.PATH_DELIMETER;
+        String test = properties.getPathPrefix() + "/";
         return uri.contains(test);
     }
 }

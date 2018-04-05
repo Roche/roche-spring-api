@@ -2,9 +2,6 @@ package com.roche.web.swagger;
 
 import springfox.documentation.service.Parameter;
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 public interface AuthenticationParameterProvider {
 
     Parameter getAuthenticationParameter();

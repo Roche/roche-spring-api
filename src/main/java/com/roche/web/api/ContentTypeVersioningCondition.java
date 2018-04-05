@@ -5,9 +5,6 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.env.PropertyResolver;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class ContentTypeVersioningCondition implements Condition {
 
     private static final String CONTENT_PROPERTY = "roche.api.versionInContentType";
