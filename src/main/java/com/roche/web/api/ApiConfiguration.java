@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Configuration class responsible for creation of all necessary beans.
+ * It is imported as Spring configuration when {@code @EnableApi} is set.
+ *
+ * @see com.roche.web.annotation.EnableApi
+ * @see com.roche.web.annotation.ApiConfigurationImportSelector
  */
 public class ApiConfiguration {
 

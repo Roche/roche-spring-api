@@ -5,9 +5,6 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
 import java.util.Set;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 abstract class AbstractApiVersioningStrategy implements ApiVersionStrategy {
 
     private final ApiVersionNamingProvider namingProvider;

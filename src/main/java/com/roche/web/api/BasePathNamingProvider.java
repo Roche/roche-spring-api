@@ -3,7 +3,6 @@ package com.roche.web.api;
 import org.springframework.util.StringUtils;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
  */
 public class BasePathNamingProvider implements EmptyPathNamingProvider {
 

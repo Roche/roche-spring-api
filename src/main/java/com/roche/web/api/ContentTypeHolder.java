@@ -5,9 +5,6 @@ import org.springframework.util.StringUtils;
 
 import java.util.Map;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 final class ContentTypeHolder implements VersionTarget {
 
     private MediaType contentType;

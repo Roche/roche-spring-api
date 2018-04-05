@@ -5,9 +5,6 @@ import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
 class PathHolders implements VersionTarget {
 
     private final String pathPrefix;

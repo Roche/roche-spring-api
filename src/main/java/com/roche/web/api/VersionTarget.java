@@ -3,7 +3,8 @@ package com.roche.web.api;
 import org.springframework.util.StringUtils;
 
 /**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Interface used by objects which may store
+ * API versioning scheme and be responsible for API versioning.
  */
 interface VersionTarget {
 

@@ -5,7 +5,12 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import java.util.Set;
 
 /**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Interface used for marking API versioning strategies.
+ *
+ * <p><b>IMPORTANT:</b> only ONE versioning strategy can be used</p>
+ *
+ * @see ApiVersioningContentTypeStrategy
+ * @see ApiVersioningPathStrategy
  */
 interface ApiVersionStrategy extends ApiDecorator {
 
