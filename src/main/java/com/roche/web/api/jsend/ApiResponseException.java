@@ -1,6 +1,9 @@
 package com.roche.web.api.jsend;
 
-
+/**
+ * General exception thrown by {@link ErrorResponseUnwrapperHandler}
+ * when received data does not contain success status.
+ */
 public class ApiResponseException extends RuntimeException {
 
     private final ApiResponseStatus apiResponseStatus;
