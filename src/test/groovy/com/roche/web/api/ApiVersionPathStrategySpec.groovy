@@ -4,9 +4,7 @@ import com.roche.web.annotation.Api
 import com.roche.web.annotation.ApiVersion
 import spock.lang.Shared
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiVersionPathStrategySpec extends BaseApiSpec {
 
     static final String VERSION_1 = 'v1'

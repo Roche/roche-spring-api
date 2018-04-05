@@ -5,9 +5,7 @@ import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition
 import spock.lang.Shared
 import spock.lang.Unroll
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ContextPathEnhancerSpec extends BaseApiSpec {
 
     @Shared

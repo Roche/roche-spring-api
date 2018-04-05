@@ -6,9 +6,7 @@ import groovy.util.logging.Slf4j
 import org.springframework.web.bind.annotation.GetMapping
 
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 @Api("test")
 @Slf4j
 @CompileStatic

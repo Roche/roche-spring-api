@@ -5,9 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiVersionNamingProviderSpec extends Specification {
 
     ApiVersionNamingProvider provider = new ApiVersionNamingProvider(ApiTestHelper.apiProperties)

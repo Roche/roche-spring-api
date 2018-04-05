@@ -6,9 +6,7 @@ import spock.lang.Unroll
 import javax.servlet.http.HttpServletRequest
 
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class RequestUtilSpec extends Specification {
 
     @Unroll

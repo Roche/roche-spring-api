@@ -1,7 +1,5 @@
 package com.roche.web.api
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiPathEnhancerSpec extends BaseApiSpec {
 
     ApiProperties properties = ApiTestHelper.apiProperties

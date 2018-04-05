@@ -9,9 +9,7 @@ import org.springframework.web.method.HandlerMethod
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo
 import spock.lang.Specification
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 @WebAppConfiguration
 @ContextConfiguration(classes = [TestConfiguration, ApiTestController, TestController])
 @Slf4j

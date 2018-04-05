@@ -7,9 +7,7 @@ import org.springframework.web.servlet.mvc.condition.ProducesRequestCondition
 import spock.lang.Shared
 import spock.lang.Unroll
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiVersionContentStrategySpec extends BaseApiSpec {
 
     static final String VERSION_1 = 'v1'

@@ -1,8 +1,6 @@
 package com.roche.web.api
 
-/**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class ApiTestHelper {
 
     static final String BASE_CONTEXT = "context"

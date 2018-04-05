@@ -3,9 +3,7 @@ package com.roche.web.api
 import spock.lang.Shared
 import spock.lang.Specification
 
-/**
- * Created by Mateusz Filipowicz (mateusz.filipowicz@roche.com).
- */
+
 class PathHolderSpec extends Specification {
 
     static final API_PREFIX = 'api'
