@@ -9,7 +9,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Mateusz Filipowicz (mateusz.filipowicz@roche.com).
+ * Mark your controller type or method with to return {@link HttpStatus#FOUND}.
+ * It is shorthand for {@code @ResponseStatus(HttpStatus.FOUND)}
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
