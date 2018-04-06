@@ -20,12 +20,12 @@ import java.util.Optional;
  * If you communicate with other system or introduce JSend format for your microservices,
  * you can register this Jackson message converter which will take care of
  * JSend format unwrapping.
- * <p>
+ *
  * <p>If unwrapped message status is not SUCCESS, then {@link ErrorResponseUnwrapperHandler}
  * is used to handle received message, as message is considered to be erroneous. If custom
  * error handler is not provided, basic handler will be used, which is just throwing
  * {@link ApiResponseException} with data provided</p>
- * <p>
+ *
  * <p>Unwrapper is capable of handling pageable objects. Object is considered pageable
  * when <i>data</i> contains <i>content</i> and <i>totalPages</i> objects</p>
  */

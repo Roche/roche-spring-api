@@ -194,12 +194,12 @@ public class ApiBuilder {
 
     /**
      * Builds request mapping from this definition and combines with other request mapping.
-     * <p>
+     *
      * <p>This method first builds new API mapping and then it applies custom mapping.
      * It does not operate on original mapping!</p>
-     * <p>
+     *
      * <p>This operation can be chained!</p>
-     * <p>
+     *
      * <p><b>IMPORTANT:</b> Use it with care, as it may completely change how given mapping is built,
      * however it offers most powerful capabilities, because you can define custom request mapping
      * and apply it to original.</p>

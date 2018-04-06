@@ -26,24 +26,24 @@ import java.lang.annotation.*;
  *
  * Example:
  * <pre>
- * @Api(value = "examples",
+ * &#64;Api(value = "examples",
  *      consumes = "application/json",
  *      produces = "application/json",
- *      version = @ApiVersion(2))
+ *      version = &#64;ApiVersion(2))
  * class ExampleController {
  *
- *     @GetMapping // 1
+ *     &#64;GetMapping // 1
  *     Object doFirst() {
  *         ...
  *     }
  *
- *     @RequestMapping(path = "second", method = RequestMethod.GET, produces = "text/html") // 2
+ *     &#64;RequestMapping(path = "second", method = RequestMethod.GET, produces = "text/html") // 2
  *     Object doSecond() {
  *         ...
  *     }
  *
- *     @PostMapping("third")
- *     @ApiVersion(3) // 3
+ *     &#64;PostMapping("third")
+ *     &#64;ApiVersion(3) // 3
  *     Object doThird() {
  *         ...
  *     }
