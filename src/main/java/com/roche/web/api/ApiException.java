@@ -14,22 +14,22 @@ package com.roche.web.api;
  */
 public class ApiException extends RuntimeException {
 
-    ApiException() {
+    public ApiException() {
     }
 
-    ApiException(String message) {
+    public ApiException(String message) {
         super(message);
     }
 
-    ApiException(String message, Throwable cause) {
+    public ApiException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    ApiException(Throwable cause) {
+    public ApiException(Throwable cause) {
         super(cause);
     }
 
-    ApiException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public ApiException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }

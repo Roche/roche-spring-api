@@ -28,6 +28,11 @@ class RequestUtilSpec extends Specification {
         HttpConst.XML_HTTP_REQUEST || true
     }
 
+    def 'when request is null xhr test should return false'() {
+        expect:
+        !RequestUtil.isXhr(null)
+    }
+
     def 'request attributes not exist without request'() {
         when:
         def result = RequestUtil.getRequestAttributes()

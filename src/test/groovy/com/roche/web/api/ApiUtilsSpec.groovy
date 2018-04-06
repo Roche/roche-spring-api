@@ -41,7 +41,7 @@ class ApiUtilsSpec extends Specification {
         "application/$CONTENT_TYPE_VND+json"                    || UNVERSIONED
         "application/${CONTENT_TYPE_VND}.version1+json"         || UNVERSIONED
         "application/$CONTENT_TYPE_VND.${VERSION_PREFIX}1+json" || 1
-        "test/$CONTENT_TYPE_VND.${VERSION_PREFIX}99"            || 99
+        "test/$CONTENT_TYPE_VND.${VERSION_PREFIX}99/test"       || 99
     }
 
     void 'version is applied'() {
