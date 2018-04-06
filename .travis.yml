@@ -1,33 +1,32 @@
+sudo: false
+language: java
+jdk:
+- oraclejdk8
 env:
   global:
-    - CC_TEST_REPORTER_ID=2b037ae0ef9aa68c5b58879498704bfafd93e69116cca25738f52d509fce332d
-
-language: java
-
-jdk:
-  - oraclejdk8
+  - CC_TEST_REPORTER_ID=2b037ae0ef9aa68c5b58879498704bfafd93e69116cca25738f52d509fce332d
+  - secure: a00k9ZzNqZX0P7uS1lwJPrQtBNJV6j2alej/KXYNNv+XOJvSQcbGqKaJqvbCJ72H3G5c+iJAdPX8XqE1+8pSHDEJjKFJk9yIl5M2E36MtKlQ7izdP8G+83MAIGVc1uOEjlswACNt1kb1YTv4rWIM8++wysfHef0paSqGcdxveox3v4jbyZjx/sjaiB0f7MzkB252RcOU/zge8zUtHj7Xl0Uu4J/mjPQF7DzkJkDagFhn5cX6ZVPEfxN0/7aKfJAT0X4ug4ws6bX31ieaHW129mhyJUp3ex03CqNRG5xVTsXpODW6JxTDVf/sfgnq+XaIM4JkxR5aZco7WOfjb1zf3b39rsP9MjhCuUTLOu97DYNm4AdYU7ogbFol8fpqzbBUQ8gZgBy4yXfA+SvnWyHIFoxBRYcpRuo3TvhdpAOBqE9IQgQGJiwlVzibp/4j61cRsJqIdFoE7ScxENl7Sx1gD0p1kYLRswwwBsO8YBOZPz+MB29cOTSKLrICus/5hCzzOFiFeixDo2aN7BhxxZBctsgKPrQKK/BaobYGbO4oOSwSsrEx68w/HAMnTmfm9j9AicOPLlqA3WKa2ZlBjx2GKG8fkMDSQuAbnkAMlEgqeB7A3mtg25ke0OdPq9JKCNyBysWo9Iibamv4muRMuk0ozxLeN8aQXh1XYAFykjoHDfE=
 
 cache:
   directories:
-  - $HOME/.m2
+  - "$HOME/.m2"
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 after_script:
-  - export JACOCO_SOURCE_PATH=$(pwd)/src/main/java
-  - ./cc-test-reporter format-coverage "target/jacoco-result/jacoco.xml" -d -t jacoco
-  - ./cc-test-reporter upload-coverage -d
+- export JACOCO_SOURCE_PATH=$(pwd)/src/main/java
+- ./cc-test-reporter format-coverage "target/jacoco-result/jacoco.xml" -d -t jacoco
+- "./cc-test-reporter upload-coverage -d"
 
-#deploy:
-#  - provider: script
-#    script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy"
-#    skip_cleanup: true
-#    on:
-#      tags: true
-#  - provider: pages
-#    skip-cleanup: true
-#    keep-history: true
-#    on:
-#      branch: master
+# ==== DEPLOYMENT ====
+before_deploy: echo '=> Starting Bintray deployment'
+deploy:
+  provider: script
+  script: script/travis-deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master
+after_deploy: echo '=> Bintray deployment finished'
