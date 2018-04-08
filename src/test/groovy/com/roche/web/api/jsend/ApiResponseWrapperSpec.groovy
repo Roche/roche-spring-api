@@ -16,6 +16,10 @@ class ApiResponseWrapperSpec extends Specification {
     ApiProperties properties = ApiTestHelper.apiProperties
     ApiResponseWrapper wrapper = new ApiResponseWrapper(properties)
 
+    def cleanup() {
+        RequestContextHolder.resetRequestAttributes()
+    }
+
     @Unroll
     def 'should not support wrap response when type unsupported'() {
         given:
