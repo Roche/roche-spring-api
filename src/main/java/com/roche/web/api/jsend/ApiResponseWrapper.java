@@ -1,6 +1,7 @@
 package com.roche.web.api.jsend;
 
 import com.roche.web.api.ApiProperties;
+import com.roche.web.http.RequestUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -12,8 +13,6 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,12 +47,6 @@ class ApiResponseWrapper implements ResponseBodyAdvice<Object> {
         return shouldPathBeHandled();
     }
 
-    private ResponseEntity<ApiResponse> wrapResponseEntityBody(ResponseEntity responseEntity) {
-        return ResponseEntity.status(responseEntity.getStatusCode())
-                .headers(responseEntity.getHeaders())
-                .body(ApiResponseFactory.getApiResponse(responseEntity.getBody()));
-    }
-
     @Override
     public Object beforeBodyWrite(Object body,
                                   MethodParameter returnType,
@@ -80,10 +73,18 @@ class ApiResponseWrapper implements ResponseBodyAdvice<Object> {
     }
 
     private boolean shouldPathBeHandled() {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-                .getRequest();
+        HttpServletRequest request = RequestUtil.getHttpServletRequest();
+        if (request == null) {
+            return false;
+        }
         String uri = request.getRequestURI();
         String test = properties.getPathPrefix() + "/";
         return uri.contains(test);
+    }
+
+    private ResponseEntity<ApiResponse> wrapResponseEntityBody(ResponseEntity responseEntity) {
+        return ResponseEntity.status(responseEntity.getStatusCode())
+                .headers(responseEntity.getHeaders())
+                .body(ApiResponseFactory.getApiResponse(responseEntity.getBody()));
     }
 }

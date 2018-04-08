@@ -18,7 +18,7 @@ class ApiTestHelper {
             it.pathPrefix = PATH_PREFIX
             it.versionPrefix = VERSION_PREFIX
             it.versionInContentType = versionInContentType
+            it
         }
-        return props
     }
 }
